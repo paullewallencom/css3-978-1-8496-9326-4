@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Shiny Buttons: from the reality to the web!</title>
+	<link href='http://fonts.googleapis.com/css?family=Chango|Frijole|Alegreya+SC:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.4.1/build/cssreset/cssreset-min.css">
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="js/modernizr.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/olderbrowsers.css">
+	<script>
+		yepnope({
+			test : Modernizr.borderradius && Modernizr.boxshadow && Modernizr.multiplebgs && Modernizr.cssgradients,
+			yep  : ['css/application.css','js/prefixfree.js']
+		});
+	</script>
+
+</head>
+<body>
+	<section>
+		
+		<article id="arcade_game">
+			<a href="#" class="punch" role="button" data-simbolo-pulsante="!">punch</a>
+			<a href="#" class="jump" role="button" data-simbolo-pulsante="★">jump</a>
+		</article>
+		
+		<article id="old_panel">
+			<form>
+				<input type="checkbox" id="rec">
+				<label class="rec" for="rec">RECORD</label>
+				<input type="checkbox" id="at_field">
+				<label class="at_field" for="at_field">AT FIELD</label>
+			</form>
+		</article>
+		
+	</section>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<ul>
+	<li>element</li>
+	<li>element</li>
+	<li>element</li>
+</ul>
+<p></p>
+
+<style>
+
+ul{
+	counter-reset: elements;
+}
+	
+li{
+	counter-increment: elements;
+}
+
+p:after{
+	content: counter(elements) ' elements';
+}
+
+</style>

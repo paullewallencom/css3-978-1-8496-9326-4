@@ -1,0 +1,191 @@
+@import "compass/reset";
+@import "compass/css3/box";
+@import "compass/css3/transform";
+@import "animation";
+
+$total_animation_duration: 11.5;
+$still_default: 1;
+$move_default: 0.5;
+$current_percentage: 0%;
+
+@function sec_to_per($sec, $dur: $total_animation_duration){
+	@return 0% + $sec * 100 / $dur;
+}
+
+@mixin animate_to_and_wait($move, $still ) {
+
+	$move_increment: sec_to_per($move);
+	$current_percentage: $current_percentage + $move_increment;
+
+	#{ $current_percentage }{ @content }
+
+	@if $still == end {
+		$current_percentage: 100%;
+	} @else{
+		$still_increment: sec_to_per($still);
+		$current_percentage: $current_percentage + $still_increment;
+	}
+
+	#{ $current_percentage }{ @content }	
+
+}
+
+@mixin ext_keyframes($name){
+
+	@include with-only-support-for($moz: true) {
+		@-moz-keyframes #{$name} { @content; }
+    }
+    $current_percentage: 0%;
+    @include with-only-support-for($webkit: true) {
+    	@-webkit-keyframes #{$name} { @content; }
+    }
+    $current_percentage: 0%;
+    @include with-only-support-for {
+    	@keyframes #{$name} { @content; }
+    }    
+
+}
+
+html,body, #viewport, #container{
+	height: 100%;
+	font-size: 150px;
+}
+
+#viewport{
+	@include transform-style(preserve-3d);
+	@include perspective(500px);
+	overflow: hidden;
+	width: 100%;
+	@include animation(bg #{0s + $total_animation_duration} steps(1,start));
+	@include animation-fill-mode(forwards);
+}
+
+#container{
+	@include transform-style(preserve-3d);
+	@include animation(camera #{0s + $total_animation_duration} linear);
+	@include animation-fill-mode(forwards);
+	width: 100%;
+	position: relative;
+
+	& > div{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;		
+	} 
+
+	div[data-slide]{
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		
+		@include display-box;
+		@include box-align(center);
+		-ms-box-align: middle;
+		@include box-pack(center);
+		display: -ms-flexbox;
+		-ms-flex-direction: row;
+		-ms-flex-align: center;
+		-ms-flex-pack: center;
+
+	}
+
+}
+
+div{
+	&[data-sequence="1"]{
+		@include transform(rotateX(45deg));
+		@include animation(sequence_1 2s linear);
+		@include animation-fill-mode(forwards);
+	}
+
+	&[data-sequence="2"]{
+		font-family: 'Meie Script', cursive;
+		@include transform(rotateY(45deg) translateY(300px) scale(0.5));
+	}
+
+	&[data-sequence="3"]{
+		@include transform(rotateX(90deg) translateY(300px) scale(0.5));
+	}
+
+	&[data-sequence="4"]{
+		@include transform(rotateX(90deg) translateY(300px) translateX(600px) scale(0.5));
+	}
+
+	&[data-sequence="5"]{
+		@include transform(rotateX(90deg) translateZ(300px) translateY(350px) translateX(600px) scale(0.5));
+	}
+
+	&[data-sequence="6"]{
+		@include transform(rotateZ(30deg) translateY(500px) translateZ(300px));
+	}
+}
+
+/* == [BEGIN] Camera == */
+@include ext_keyframes(camera){
+	0%{
+		@include transform(none);
+	}
+
+	@include animate_to_and_wait(0.5, 1.5){ 	
+		@include transform(scale(2) rotateX(-45deg));
+	}
+
+	@include animate_to_and_wait(0.5, 1.5){
+		@include transform(scale(2) translateY(-300px) rotateY(-45deg));
+	}
+
+	@include animate_to_and_wait(0.5, 1.5){
+		@include transform(scale(2) translateY(-300px) rotateX(-90deg));
+	}
+
+	@include animate_to_and_wait(0.5, 1.5){
+		@include transform(scale(2) translateX(-600px) translateY(-300px) rotateX(-90deg));
+	}
+
+	@include animate_to_and_wait(0.5, 1.5){
+		@include transform(scale(2) translateX(-600px) translateY(-350px) translateZ(-300px) rotateX(-90deg));
+	}
+
+	@include animate_to_and_wait(0.5, end){
+		@include transform(scale(2) translateZ(-300px) translateY(-500px) rotateZ(-30deg));
+	}
+}
+/* == [END] Camera == */
+
+/* == [BEGIN] sequence_1 == */
+@include ext_keyframes(sequence_1){
+	0%{
+		color: rgba(0,0,0,0);
+	}
+}
+/* == [END] sequence_1 == */
+
+/* == [BEGIN] bg == */
+@include ext_keyframes(bg){
+	0%{
+		background: green;
+	}
+	#{sec_to_per(2)}{
+		background: darkolivegreen;
+	}
+	#{sec_to_per(4)}{
+		background: violet;
+	}
+	#{sec_to_per(6)}{
+		background: orange;
+	}
+	#{sec_to_per(8)}{
+		background: lightsteelblue;
+	}
+	#{sec_to_per(10)}{
+		background: thistle;
+	}
+	100%{
+		background: pink;
+	}
+}
+/* == [END] bg == */
+
+

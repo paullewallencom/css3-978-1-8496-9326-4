@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<title> :target test</title>
+		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.5.0/build/cssreset/cssreset-min.css">
+		
+		<style>
+		a[id]{
+			display: block;
+			width: 100px;
+			height: 100px;
+			text-align: center;
+			line-height: 100px;
+			margin: 10px;
+			background: gray;
+		}
+		a:target{
+			background: yellow;
+		}
+		</style>
+
+		<script src="js/prefixfree.js"></script>
+	</head>
+	<body>
+		<a href="#one"> light 1 </a>
+		<a href="#two"> light 2 </a>
+		<a id="one"> one </a>
+		<a id="two"> two </a>
+	</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<!--[if lte IE 9]> <html class="lteie9"> <![endif]-->
+<!--[if !IE]> --> <html> <!-- <![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<title> Omnimenu: good for desktop, good for mobile </title>
+	
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.7.3/build/cssreset/cssreset-min.css" data-noprefix>
+	<link rel="stylesheet" type="text/css" href="css/application.css">
+	
+	<!-- [if gte IE 9]> -->
+	<link rel="stylesheet" type="text/css" media="screen and (max-width: 320px)" href="css/application_mobile.css" data-noprefix/>
+	<!-- <![endif]-->
+
+	<script src="js/prefixfree.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			if(!Modernizr.touch){
+				$('ul > li > .item').on('click', function(ev){
+					$('ul > li').attr('data-status',null);
+					$(ev.target).parent().attr('data-status','selected');
+				});
+				$('ul > li > ul > li > .item').on('click', function(ev){
+					$(ev.target).parents('li[data-section]').attr('data-status',null);
+				});
+			}
+		});
+	</script>
+</head>
+<body>
+	
+  <nav>
+    <ul>
+      <li data-section="about-me">
+        <a href="#" class="item"> About me </a>
+        <ul>
+          <li><a href="#" class="item">Early years</a></li>
+          <li><a href="#" class="item">First works</a></li>
+          <li><a href="#" class="item">Today and tomorrow</a></li>
+          <li class="cursor"><a href="#" class="item"> back </a> </li> 
+        </ul>
+      </li><li data-section="portfolio">
+        <a href="#" class="item"> Portfolio </a>
+        <ul>
+          <li> <a href="#" class="item"> Design </a> </li>
+          <li> <a href="#" class="item"> Articles </a> </li>
+          <li class="cursor"> <a href="#" class="item"> back </a> </li> 
+        </ul>
+      </li><li data-section="interests">
+        <a href="#" class="item"> Interests </a>
+        <ul>
+          <li> <a href="#" class="item"> Skying </a> </li>
+          <li> <a href="#" class="item"> Snowboarding </a> </li>
+          <li> <a href="#" class="item"> Wakeboarding </a> </li>
+          <li class="cursor"> <a href="#" class="item"> back </a> </li>
+        </ul>
+      </li><li class="cursor"></li>
+    </ul>
+  </nav>
+	
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title> A ZUI for an infographic</title>
+		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.5.0/build/cssreset/cssreset-min.css" data-noprefix>
+		<link rel="stylesheet" type="text/css" href="css/application.css">
+		
+		<script src="js/modernizr.js"></script>
+		<script src="js/prefixfree.js"></script>
+		
+	</head>
+	<body>
+		<a id="italy" name="italy"></a>
+		<a id="montreal" name="montreal"></a>
+		<a id="sanfrancisco" name="sanfrancisco"></a>
+		<a id="italy2" name="italy2"></a>
+		<input type="checkbox" id="show_labels" name="show_labels">
+		<section id="infographic">
+			<header>
+				<h1>a cool infographic</h1>
+				<nav>
+					<ul>
+						<li><a href="#italy">Italy</a></li>
+						<li><a href="#montreal">Montreal</a></li>
+						<li><a href="#sanfrancisco">San Francisco</a></li>
+						<li><a href="#">Whole view</a></li>
+						<li><label for="show_labels"></label></li>
+					</ul>
+				</nav>
+			</header>
+			<article>
+				<div class="panel"></div>
+				<img class="panel" src="img/infographic.png">
+			</article>
+			</section>
+			<div id="mask"> 
+				<div data-detail="italy">
+					<span>Help text. Click the arrows to explore more.</span>
+					<menu><a role="button" aria-label="move down" href="#italy2">&#x25BC;</a></menu>
+				</div>
+				<div data-detail="italy2">
+					<span>Help text. Click the arrows to explore more.</span>
+					<menu><a role="button" aria-label="move left" href="#montreal">&#x25C4;</a><a role="button" aria-label="move up" href="#italy">&#x25B2;</a><a role="button" aria-label="move right" href="#sanfrancisco">&#x25BA;</a></menu>
+				</div>
+				<div data-detail="montreal">
+					<span>Help text. Click the arrows to explore more.</span>
+					<menu><a role="button" aria-label="move right" href="#italy2">&#x25BA;</a></menu>
+				</div>
+				<div data-detail="sanfrancisco">
+					<span>Help text. Click the arrows to explore more.</span>
+					<menu><a role="button" aria-label="move left" href="#italy2">&#x25C4;</a></menu>
+				</div>
+			</div>
+	
+			<!-- Adding older browser's support -->
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+			<script src="js/jquery.hashchange.js"></script>
+			<script src="js/flexie.min.js"></script>
+			<script>
+				$(document).ready(function(){
+
+					// Injecting SVG
+					$('div.panel').load('img/infographic.svg' );
+					
+					if(!Modernizr.multiplebgs){
+						if(window.location.hash.substring(1) != "")
+							window.location.href = window.location.href.replace(window.location.hash,'');
+						jQuery(window).hashchange(function(e){
+							$('section, #mask').removeClass().addClass(window.location.hash.substring(1));
+						});
+					}
+				});
+			</script>	
+
+	</body>
+</html>

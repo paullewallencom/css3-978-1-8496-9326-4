@@ -1,0 +1,638 @@
+@import url(http://fonts.googleapis.com/css?family=Chivo);
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+.this_bar_chart {
+  width: 600px;
+  height: 400px;
+}
+
+*[data-bar-chart] {
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+*[data-bar-chart] *[data-bar] {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -moz-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+*[data-bar-chart] {
+  padding-bottom: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*[data-bar-chart] *[data-bar] {
+  position: relative;
+}
+*[data-bar-chart] *[data-bar]:before {
+  display: block;
+  content: attr(data-label);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.value {
+  position: absolute;
+  bottom: 0;
+  left: 6%;
+  right: 6%;
+}
+
+*[data-value-percentage='0'] {
+  height: 0%;
+}
+
+*[data-value-percentage='1'] {
+  height: 1%;
+}
+
+*[data-value-percentage='2'] {
+  height: 2%;
+}
+
+*[data-value-percentage='3'] {
+  height: 3%;
+}
+
+*[data-value-percentage='4'] {
+  height: 4%;
+}
+
+*[data-value-percentage='5'] {
+  height: 5%;
+}
+
+*[data-value-percentage='6'] {
+  height: 6%;
+}
+
+*[data-value-percentage='7'] {
+  height: 7%;
+}
+
+*[data-value-percentage='8'] {
+  height: 8%;
+}
+
+*[data-value-percentage='9'] {
+  height: 9%;
+}
+
+*[data-value-percentage='10'] {
+  height: 10%;
+}
+
+*[data-value-percentage='11'] {
+  height: 11%;
+}
+
+*[data-value-percentage='12'] {
+  height: 12%;
+}
+
+*[data-value-percentage='13'] {
+  height: 13%;
+}
+
+*[data-value-percentage='14'] {
+  height: 14%;
+}
+
+*[data-value-percentage='15'] {
+  height: 15%;
+}
+
+*[data-value-percentage='16'] {
+  height: 16%;
+}
+
+*[data-value-percentage='17'] {
+  height: 17%;
+}
+
+*[data-value-percentage='18'] {
+  height: 18%;
+}
+
+*[data-value-percentage='19'] {
+  height: 19%;
+}
+
+*[data-value-percentage='20'] {
+  height: 20%;
+}
+
+*[data-value-percentage='21'] {
+  height: 21%;
+}
+
+*[data-value-percentage='22'] {
+  height: 22%;
+}
+
+*[data-value-percentage='23'] {
+  height: 23%;
+}
+
+*[data-value-percentage='24'] {
+  height: 24%;
+}
+
+*[data-value-percentage='25'] {
+  height: 25%;
+}
+
+*[data-value-percentage='26'] {
+  height: 26%;
+}
+
+*[data-value-percentage='27'] {
+  height: 27%;
+}
+
+*[data-value-percentage='28'] {
+  height: 28%;
+}
+
+*[data-value-percentage='29'] {
+  height: 29%;
+}
+
+*[data-value-percentage='30'] {
+  height: 30%;
+}
+
+*[data-value-percentage='31'] {
+  height: 31%;
+}
+
+*[data-value-percentage='32'] {
+  height: 32%;
+}
+
+*[data-value-percentage='33'] {
+  height: 33%;
+}
+
+*[data-value-percentage='34'] {
+  height: 34%;
+}
+
+*[data-value-percentage='35'] {
+  height: 35%;
+}
+
+*[data-value-percentage='36'] {
+  height: 36%;
+}
+
+*[data-value-percentage='37'] {
+  height: 37%;
+}
+
+*[data-value-percentage='38'] {
+  height: 38%;
+}
+
+*[data-value-percentage='39'] {
+  height: 39%;
+}
+
+*[data-value-percentage='40'] {
+  height: 40%;
+}
+
+*[data-value-percentage='41'] {
+  height: 41%;
+}
+
+*[data-value-percentage='42'] {
+  height: 42%;
+}
+
+*[data-value-percentage='43'] {
+  height: 43%;
+}
+
+*[data-value-percentage='44'] {
+  height: 44%;
+}
+
+*[data-value-percentage='45'] {
+  height: 45%;
+}
+
+*[data-value-percentage='46'] {
+  height: 46%;
+}
+
+*[data-value-percentage='47'] {
+  height: 47%;
+}
+
+*[data-value-percentage='48'] {
+  height: 48%;
+}
+
+*[data-value-percentage='49'] {
+  height: 49%;
+}
+
+*[data-value-percentage='50'] {
+  height: 50%;
+}
+
+*[data-value-percentage='51'] {
+  height: 51%;
+}
+
+*[data-value-percentage='52'] {
+  height: 52%;
+}
+
+*[data-value-percentage='53'] {
+  height: 53%;
+}
+
+*[data-value-percentage='54'] {
+  height: 54%;
+}
+
+*[data-value-percentage='55'] {
+  height: 55%;
+}
+
+*[data-value-percentage='56'] {
+  height: 56%;
+}
+
+*[data-value-percentage='57'] {
+  height: 57%;
+}
+
+*[data-value-percentage='58'] {
+  height: 58%;
+}
+
+*[data-value-percentage='59'] {
+  height: 59%;
+}
+
+*[data-value-percentage='60'] {
+  height: 60%;
+}
+
+*[data-value-percentage='61'] {
+  height: 61%;
+}
+
+*[data-value-percentage='62'] {
+  height: 62%;
+}
+
+*[data-value-percentage='63'] {
+  height: 63%;
+}
+
+*[data-value-percentage='64'] {
+  height: 64%;
+}
+
+*[data-value-percentage='65'] {
+  height: 65%;
+}
+
+*[data-value-percentage='66'] {
+  height: 66%;
+}
+
+*[data-value-percentage='67'] {
+  height: 67%;
+}
+
+*[data-value-percentage='68'] {
+  height: 68%;
+}
+
+*[data-value-percentage='69'] {
+  height: 69%;
+}
+
+*[data-value-percentage='70'] {
+  height: 70%;
+}
+
+*[data-value-percentage='71'] {
+  height: 71%;
+}
+
+*[data-value-percentage='72'] {
+  height: 72%;
+}
+
+*[data-value-percentage='73'] {
+  height: 73%;
+}
+
+*[data-value-percentage='74'] {
+  height: 74%;
+}
+
+*[data-value-percentage='75'] {
+  height: 75%;
+}
+
+*[data-value-percentage='76'] {
+  height: 76%;
+}
+
+*[data-value-percentage='77'] {
+  height: 77%;
+}
+
+*[data-value-percentage='78'] {
+  height: 78%;
+}
+
+*[data-value-percentage='79'] {
+  height: 79%;
+}
+
+*[data-value-percentage='80'] {
+  height: 80%;
+}
+
+*[data-value-percentage='81'] {
+  height: 81%;
+}
+
+*[data-value-percentage='82'] {
+  height: 82%;
+}
+
+*[data-value-percentage='83'] {
+  height: 83%;
+}
+
+*[data-value-percentage='84'] {
+  height: 84%;
+}
+
+*[data-value-percentage='85'] {
+  height: 85%;
+}
+
+*[data-value-percentage='86'] {
+  height: 86%;
+}
+
+*[data-value-percentage='87'] {
+  height: 87%;
+}
+
+*[data-value-percentage='88'] {
+  height: 88%;
+}
+
+*[data-value-percentage='89'] {
+  height: 89%;
+}
+
+*[data-value-percentage='90'] {
+  height: 90%;
+}
+
+*[data-value-percentage='91'] {
+  height: 91%;
+}
+
+*[data-value-percentage='92'] {
+  height: 92%;
+}
+
+*[data-value-percentage='93'] {
+  height: 93%;
+}
+
+*[data-value-percentage='94'] {
+  height: 94%;
+}
+
+*[data-value-percentage='95'] {
+  height: 95%;
+}
+
+*[data-value-percentage='96'] {
+  height: 96%;
+}
+
+*[data-value-percentage='97'] {
+  height: 97%;
+}
+
+*[data-value-percentage='98'] {
+  height: 98%;
+}
+
+*[data-value-percentage='99'] {
+  height: 99%;
+}
+
+*[data-value-percentage='100'] {
+  height: 100%;
+}
+
+*[data-bar-chart] {
+  padding-top: 35px;
+}
+*[data-bar-chart] .value:after {
+  content: attr(data-value-label);
+  position: absolute;
+  font-size: 25px;
+  display: block;
+  bottom: 100%;
+  padding-bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.value:after, *[data-bar]:before {
+  font-family: 'Chivo', sans-serif;
+}
+
+.value {
+  background-image: -ms-linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.3));
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, transparent), color-stop(100%, rgba(0, 0, 0, 0.3)));
+  background-image: -webkit-linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.3));
+  background-image: -moz-linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.3));
+  background-image: -o-linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.3));
+  background-image: linear-gradient(bottom, transparent, rgba(0, 0, 0, 0.3));
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: 1px 1px 0px white inset;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*[data-bar] {
+  background-image: -ms-linear-gradient(top, #969696, #969696 0.5%, transparent 0.5%, transparent 24.5%, #969696 24.5%, #969696 25%, transparent 25%, transparent 49.5%, #969696 49.5%, #969696 50%, transparent 50%, transparent 74.5%, #969696 74.5%, #969696 75%, transparent 75%, transparent 99.5%, #969696 99.5%, #969696 100%);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #969696), color-stop(0.5%, #969696), color-stop(0.5%, transparent), color-stop(24.5%, transparent), color-stop(24.5%, #969696), color-stop(25%, #969696), color-stop(25%, transparent), color-stop(49.5%, transparent), color-stop(49.5%, #969696), color-stop(50%, #969696), color-stop(50%, transparent), color-stop(74.5%, transparent), color-stop(74.5%, #969696), color-stop(75%, #969696), color-stop(75%, transparent), color-stop(99.5%, transparent), color-stop(99.5%, #969696), color-stop(100%, #969696));
+  background-image: -webkit-linear-gradient(top, #969696, #969696 0.5%, transparent 0.5%, transparent 24.5%, #969696 24.5%, #969696 25%, transparent 25%, transparent 49.5%, #969696 49.5%, #969696 50%, transparent 50%, transparent 74.5%, #969696 74.5%, #969696 75%, transparent 75%, transparent 99.5%, #969696 99.5%, #969696 100%);
+  background-image: -moz-linear-gradient(top, #969696, #969696 0.5%, transparent 0.5%, transparent 24.5%, #969696 24.5%, #969696 25%, transparent 25%, transparent 49.5%, #969696 49.5%, #969696 50%, transparent 50%, transparent 74.5%, #969696 74.5%, #969696 75%, transparent 75%, transparent 99.5%, #969696 99.5%, #969696 100%);
+  background-image: -o-linear-gradient(top, #969696, #969696 0.5%, transparent 0.5%, transparent 24.5%, #969696 24.5%, #969696 25%, transparent 25%, transparent 49.5%, #969696 49.5%, #969696 50%, transparent 50%, transparent 74.5%, #969696 74.5%, #969696 75%, transparent 75%, transparent 99.5%, #969696 99.5%, #969696 100%);
+  background-image: linear-gradient(top, #969696, #969696 0.5%, transparent 0.5%, transparent 24.5%, #969696 24.5%, #969696 25%, transparent 25%, transparent 49.5%, #969696 49.5%, #969696 50%, transparent 50%, transparent 74.5%, #969696 74.5%, #969696 75%, transparent 75%, transparent 99.5%, #969696 99.5%, #969696 100%);
+}
+
+.value {
+  opacity: 0;
+}
+
+input:checked.series1[type='checkbox'] ~ *[data-bar-chart] .series1 {
+  opacity: 1;
+}
+
+.no-opacity input[type='checkbox'].series1:not(:checked) ~ *[data-bar-chart] .series1 {
+  display: none;
+}
+
+*[data-bar-chart] .series1 {
+  background-color: #bf5540;
+}
+
+input:checked.series2[type='checkbox'] ~ *[data-bar-chart] .series2 {
+  opacity: 1;
+}
+
+.no-opacity input[type='checkbox'].series2:not(:checked) ~ *[data-bar-chart] .series2 {
+  display: none;
+}
+
+*[data-bar-chart] .series2 {
+  background-color: #bf6a40;
+}
+
+input:checked.series3[type='checkbox'] ~ *[data-bar-chart] .series3 {
+  opacity: 1;
+}
+
+.no-opacity input[type='checkbox'].series3:not(:checked) ~ *[data-bar-chart] .series3 {
+  display: none;
+}
+
+*[data-bar-chart] .series3 {
+  background-color: #bf8040;
+}
+
+input:checked.series4[type='checkbox'] ~ *[data-bar-chart] .series4 {
+  opacity: 1;
+}
+
+.no-opacity input[type='checkbox'].series4:not(:checked) ~ *[data-bar-chart] .series4 {
+  display: none;
+}
+
+*[data-bar-chart] .series4 {
+  background-color: #bf9540;
+}
+
+.value {
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+
+.this_bar_chart {
+  -webkit-transform: rotate(90deg) translate(10px, -10px);
+  -moz-transform: rotate(90deg) translate(10px, -10px);
+  -ms-transform: rotate(90deg) translate(10px, -10px);
+  -o-transform: rotate(90deg) translate(10px, -10px);
+  transform: rotate(90deg) translate(10px, -10px);
+  width: 500px;
+  height: 500px;
+}
+.this_bar_chart *[data-bar]:before {
+  -webkit-transform: rotate(-90deg) translate(-7px, 0px);
+  -moz-transform: rotate(-90deg) translate(-7px, 0px);
+  -ms-transform: rotate(-90deg) translate(-7px, 0px);
+  -o-transform: rotate(-90deg) translate(-7px, 0px);
+  transform: rotate(-90deg) translate(-7px, 0px);
+}
+.this_bar_chart *[data-bar] .value:after {
+  -webkit-transform: rotate(-90deg) translate(5px, 0px);
+  -moz-transform: rotate(-90deg) translate(5px, 0px);
+  -ms-transform: rotate(-90deg) translate(5px, 0px);
+  -o-transform: rotate(-90deg) translate(5px, 0px);
+  transform: rotate(-90deg) translate(5px, 0px);
+}

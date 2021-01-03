@@ -1,0 +1,54 @@
+@mixin gauge-background($ticks, $rest_gradient, $rest_size, $rest_position) {
+
+	@include background-image(
+		gauge-tick-marks($ticks, $rest_gradient, false) 
+	);
+  
+  	background-image: gauge-tick-marks($ticks, $rest_gradient, true);
+
+	background-size: gauge-tick-marks-size($ticks, $rest_size);
+	background-position: gauge-tick-marks-position($ticks, $rest_position);
+	background-repeat: no-repeat;
+}
+
+/* == functions == */
+
+@function gauge-tick-marks($n, $rest, $ms){
+	$linear: null;
+	@for $i from 1 through $n {
+		$p: -90deg + 180 / ($n+1) * $i;
+		$gradient: null;
+		@if $ms == true {
+			$gradient: -ms-linear-gradient( $p, transparent 46%, rgba(99,99,99,0.5) 47%, rgba(99,99,99,0.5) 53%, transparent 54%);
+		} @else{
+			$gradient: linear-gradient( $p, transparent 46%, rgba(99,99,99,0.5) 47%, rgba(99,99,99,0.5) 53%, transparent 54%);
+		}
+		$linear: append($linear, $gradient, comma);
+	}
+	@if $ms == true {
+		@return append($linear, #{'-ms-' + $rest} );	
+	} @else{
+		@return append($linear, $rest);	
+	}
+}
+
+@function gauge-tick-marks-position($n, $rest){
+	$positions: null;
+	@for $i from 1 through $n {
+		$angle: 0deg + 180 / ($n+1) * $i;
+		$px: 100% * ( cos($angle) / 2 + 0.5 );
+		$py: 100% * (1 - sin($angle));
+		$positions: append($positions, $px $py, comma);
+	}
+	@return append($positions, $rest, comma);
+}
+
+@function gauge-tick-marks-size($n, $rest){
+	$sizes: null;
+	@for $i from 1 through $n {
+		$sizes: append($sizes, 1rem 1rem, comma);
+	}
+	@return append($sizes, $rest, comma);
+}
+
+/* == end functions == */

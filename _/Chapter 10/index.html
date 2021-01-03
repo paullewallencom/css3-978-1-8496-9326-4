@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+	<title>Charts</title>
+	<link rel="stylesheet" type="text/css" href="css/application.css">
+    <script src="js/modernizr.js"></script>
+    <!--[if (gte IE 8)&(lte IE 9)]>
+        <script src="js/jquery-1.8.2.min.js"></script>
+        <script src="js/selectivizr-min.js"></script>
+        <script src="js/flexie.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <input type="checkbox" class="series1" checked id="series1"> <label for="series1">show serie 1</label>
+    <input type="checkbox" class="series2" checked id="series2"> <label for="series2">show serie 2</label><br/>
+    <div data-bar-chart class="this_bar_chart">
+        <div data-bar data-label="mon">
+            <div class="value series1" data-value-percentage="40" data-value-label="40"></div>
+            <div class="value series2" data-value-percentage="60" data-value-label="60"></div>
+        </div>
+        <div data-bar data-label="tue">
+            <div class="value series1" data-value-percentage="100" data-value-label="125"></div>
+            <div class="value series2" data-value-percentage="30" data-value-label="20"></div>
+        </div>
+        <div data-bar data-label="wed">
+            <div class="value series1" data-value-percentage="80" data-value-label="112"></div>
+            <div class="value series2" data-value-percentage="50" data-value-label="80"></div>
+        </div>
+        <div data-bar data-label="thu">
+            <div class="value series1" data-value-percentage="15" data-value-label="21"></div>
+            <div class="value series2" data-value-percentage="50" data-value-label="60"></div>
+        </div>
+        <div data-bar data-label="fri">
+            <div class="value series1" data-value-percentage="10" data-value-label="14"></div>
+            <div class="value series2" data-value-percentage="90" data-value-label="100"></div>
+        </div>
+        <div data-bar data-label="sat">
+            <div class="value series1" data-value-percentage="35" data-value-label="46"></div>
+            <div class="value series2" data-value-percentage="20" data-value-label="25"></div>
+        </div>
+        <div data-bar data-label="sun">
+            <div class="value series1" data-value-percentage="58" data-value-label="67"></div>
+            <div class="value series2" data-value-percentage="10" data-value-label="12"></div>
+        </div>
+    </div>
+</body>
+</html>

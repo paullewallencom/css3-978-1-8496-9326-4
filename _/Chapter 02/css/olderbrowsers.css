@@ -1,0 +1,31 @@
+/* add some CSS2 fallback styles here :) */
+
+#arcade_game a{
+	display: block;
+	margin: 20px auto;
+	width: 200px;
+	text-align: center;
+	font-family: 'Frijole', cursive;
+	font-size: 40px;
+	color: white;
+	text-decoration: none;
+}
+
+/* puch */
+#arcade_game .punch{
+	background-color: rgb(123,26,55);
+}
+
+/* jump */
+#arcade_game .jump{
+	background-color: rgb(107,140,86);
+}
+
+#old_panel{
+	text-align: center;
+}
+
+#old_panel label{
+	font-family: 'Alegreya SC', serif;
+	font-size: 40px;
+}

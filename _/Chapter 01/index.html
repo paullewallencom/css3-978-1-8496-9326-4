@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>No signup? No party!</title>
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.7.3/build/cssreset/cssreset-min.css">
+	<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Port+Lligat+Sans' >
+	<link rel='stylesheet' type='text/css' href='css/application.css'>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<!--[if IE 9]>
+  <style>
+    footer, input[name=beers], input[name=chips]{
+      display: none;
+    }
+  </style>
+	<![endif]-->
+</head>
+<body>
+	<article>
+		<header>
+			<h1>No signup? No party!</h1>
+			<p>	Would you like to join the most amazing party of the planet? 
+				Fill up this form with your info but.. hurry up! only a few tickets
+				are still available!
+			</p>
+		</header>
+		<form name="subscription">
+
+			<fieldset>
+				<legend> 
+					Some info about you: 
+				</legend>
+				
+				<input 	type="text" name="name" id="name" placeholder="e.g. Sandro"
+						title="Your name, required" required>
+				<label 	class="label" for="name"> Name: </label>
+
+				<input 	type="text" name="surname" id="surname" placeholder="e.g. Paganotti"
+						title="Your surname, required" required>
+				<label 	class="label" for="surname"> Surname: </label>
+
+				<input 	type="email" name="email" id="email" placeholder="e.g. sandro.paganotti@gmail.com"
+						title="Your email address, a valid email is required" required>
+				<label 	class="label" for="email"> E-mail: </label>
+
+				<input 	type="text" name="twitter" id="twitter" placeholder="e.g. @sandropaganotti" 
+						title="Your twitter username, starting with @" pattern="@[a-zA-Z0-9]+">
+				<label 	class="label" for="twitter"> Twitter: </label>
+
+				<footer></footer>
+			</fieldset>
+			
+			<fieldset class="preferences">
+				<legend> Your party preferences: </legend>
+				
+				
+				<input type="radio" name="beers" id="4_beers" value="4" >
+				<label class="beers" for="4_beers">4 beers</label>
+				<input type="radio" name="beers" id="3_beers" value="3" >
+				<label class="beers" for="3_beers">3 beers</label>
+				<input type="radio" name="beers" id="2_beers" value="2" >
+				<label class="beers" for="2_beers">2 beers</label>
+				<input type="radio" name="beers" id="1_beers" value="1" >
+				<label class="beers" for="1_beers">1 beers</label>
+				<input type="radio" name="beers" id="0_beers" value="0" required>
+				<label class="beers" for="0_beers">0 beers</label>
+				<span  class="label"> How many beers?: </span>
+
+				<input type="radio" name="chips" id="4_chips" value="4" >
+				<label class="chips" for="4_chips">4 chips</label>
+				<input type="radio" name="chips" id="3_chips" value="3" >
+				<label class="chips" for="3_chips">3 chips</label>
+				<input type="radio" name="chips" id="2_chips" value="2" >
+				<label class="chips" for="2_chips">2 chips</label>
+				<input type="radio" name="chips" id="1_chips" value="1" >
+				<label class="chips" for="1_chips">1 chips</label>
+				<input type="radio" name="chips" id="0_chips" value="0" required>
+				<label class="chips" for="0_chips">0 chips</label>
+				<span  class="label"> How many chips?: </span>
+
+				<footer></footer>
+			</fieldset>
+			
+			
+			<input type="submit" value="Yep! Count me in!">
+		</form>
+		<footer>
+			Party will be held at Nottingham Arena next sunday, for info call 555-192-132 
+			or drop us a line at info@nottinghamparties.fun
+		</footer>
+	</article>
+</body>
+</html>

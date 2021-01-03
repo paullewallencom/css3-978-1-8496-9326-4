@@ -1,0 +1,186 @@
+@import "compass/reset";
+@import "compass/css3/images";
+@import "compass/css3/transform";
+@import "animation";
+@import "gauge.scss";
+
+@mixin px_and_rem($property, $value, $mux){
+	#{$property}: 0px + ($value * $mux);
+	#{$property}: 0rem + $value;
+}
+
+$multiplier: 20px;       
+
+html{ 
+	font-size: $multiplier; 
+}
+
+div[data-gauge]{
+	position: absolute;	
+
+	@include px_and_rem(width, 10, $multiplier);
+	@include px_and_rem(height, 5, $multiplier);
+
+	@include px_and_rem(margin-top, -2.5, $multiplier);
+	@include px_and_rem(margin-left, -5,  $multiplier);
+	top: 50%;
+	left: 50%;
+
+	@include px_and_rem(border-top-left-radius, 5, $multiplier);
+	@include px_and_rem(border-top-right-radius, 5, $multiplier);
+	-pie-border-radius: #{5 * $multiplier} #{5 * $multiplier} 0px 0px;
+	
+	box-shadow: 0 0 #{0.1 * $multiplier} rgba(99,99,99,0.8), 0 0 #{0.1 * $multiplier} rgba(99,99,99,0.8) inset;
+	box-shadow: 0 0 0.1rem rgba(99,99,99,0.8), 0 0 0.1rem rgba(99,99,99,0.8) inset;
+
+	border: #{0.05 * $multiplier} solid rgb(99,99,99);	
+	border: 0.05rem solid rgb(99,99,99);
+	
+	background-color: green;
+	@include gauge-background(11,
+		radial-gradient(50% 100%, circle, rgba(255,255,255,0), rgba(255,255,255,0) 25%, rgb(255,255,255) 25%, rgb(230,230,230)),
+		cover,
+		center center
+	);
+
+	color: rgb(33,33,33);
+	@include px_and_rem(font-size, 0.7, $multiplier);
+	font-family: verdana, arial, sans-serif;
+
+	&:before{
+		content: attr(data-min);
+		position: absolute;
+		@include px_and_rem(bottom, 0.2, $multiplier);
+		@include px_and_rem(left, 0.4, $multiplier);
+	}
+
+	&:after{
+		content: attr(data-max);
+		position: absolute;
+		@include px_and_rem(bottom, 0.2, $multiplier);
+		@include px_and_rem(right, 0.4, $multiplier);
+	}
+
+	div[data-arrow]{
+		position: absolute;
+		@include px_and_rem(width, 2, $multiplier);
+		@include px_and_rem(height, 2, $multiplier);
+		@include px_and_rem(border-radius, 1, $multiplier);
+		-pie-border-radius: 20px;
+
+		@include px_and_rem(bottom, -1, $multiplier);
+		left: 50%;
+		@include px_and_rem(margin-left, -1, $multiplier);
+
+		border: #{0.05 * $multiplier} solid rgb(99,99,99);	
+		border: 0.05rem solid rgb(99,99,99);
+		background: #fcfcfc;
+		box-sizing: border-box;
+
+		-webkit-transition: -webkit-transform 0.5s;
+		-moz-transition: -moz-transform 0.5s;
+		-ms-transition: -ms-transform 0.5s;
+		-o-transition: -o-transform 0.5s;
+		transition: transform 0.5s;
+
+		&:before{ 
+			position: absolute;
+			display: block;
+			content: '';
+			@include px_and_rem(width, 4, $multiplier);
+			@include px_and_rem(height, 0.5, $multiplier);
+			@include px_and_rem(bottom, 0.65, $multiplier);
+			@include px_and_rem(left, -2.75, $multiplier);
+			background-image: linear-gradient(83.11deg, transparent, transparent 49%, orange 51%, orange); 			
+			background-image: -webkit-linear-gradient(83.11deg, transparent, transparent 49%, orange 51%, orange); 
+			background-image: -moz-linear-gradient(83.11deg, transparent, transparent 49%, orange 51%, orange); 
+			background-image: -o-linear-gradient(83.11deg, transparent, transparent 49%, orange 51%, orange); 
+			background-image: -ms-linear-gradient(83.11deg, transparent, transparent 49%, orange 51%, orange); 
+			@include apply-origin(100%, 100%);
+			@include transform2d( rotate(-3.45deg));
+			box-shadow: 0px #{-0.05 * $multiplier} 0 rgba(0,0,0,0.2);
+			box-shadow: 0px -0.05rem 0 rgba(0,0,0,0.2);
+			@include px_and_rem(border-top-right-radius, 0.25, $multiplier);
+			@include px_and_rem(border-bottom-right-radius, 0.35, $multiplier);
+		}
+	}
+
+	span{
+		display: block;
+		color: #DDD;
+		@include px_and_rem(font-size, 1.5, $multiplier);
+		text-align: center;
+		@include px_and_rem(width, 10, $multiplier);
+		@include px_and_rem(height, 5, $multiplier);
+		@include px_and_rem(line-height, 5, $multiplier);
+	}
+ 
+	@for $i from 0 through 100 {
+		$v: $i;
+		@if $i < 10 { 
+			$v: '0' + $i;
+		} 
+		
+		&[data-percent='#{$v}'] > div[data-arrow]{
+			@include transform2d(rotate(#{180deg * $i/100}));
+		}
+
+		@for $k from 0 through 10 {
+			@if $i >= $k * 10 {
+				&[data-percent='#{$v}'][data-orange-from^='#{$k}']{
+					background-color: orange;
+				}
+				&[data-percent='#{$v}'][data-red-from^='#{$k}']{
+					background-color: red;
+				}
+			}
+		}
+	}
+
+	&[data-trembling][data-percent^='8'] > div[data-arrow]:before,
+	&[data-trembling][data-percent^='9'] > div[data-arrow]:before,
+	&[data-trembling][data-percent='100'] > div[data-arrow]:before{
+		@include animation(trembling 0.2s infinite linear alternate);
+	}
+}
+
+@include keyframes(trembling) {
+  0% {
+    @include transform2d( rotate(-5.17deg));
+  }
+  100% {
+   	@include transform2d( rotate(-1.725deg));
+  }
+}
+
+.no-cssgradients div[data-gauge]{ 
+	background-image: -svg(radial-gradient(50% 100%, circle, rgba(255,255,255,0), rgba(255,255,255,0) 35%, rgb(255,255,255) 35%, rgb(230,230,230)));
+	background-size: cover;
+	background-position: auto;
+
+	div[data-arrow]:before{
+		background-color: orange;
+		@include transform2d( rotate(0deg));
+		box-shadow: none;
+		border-radius: 0;
+	}
+}
+
+.ie8 div[data-gauge]{
+	div[data-arrow]{
+		width: #{10 * $multiplier};
+		height: #{10 * $multiplier};
+		margin-top: #{-5 * $multiplier};
+		margin-left: #{-5 * $multiplier};
+		top: 50%;
+		left: 50%;
+		background: transparent;
+		border: none;
+
+		&:before{
+			bottom: 50%;
+			margin-bottom: #{-0.25 * $multiplier};
+			left: #{1 * $multiplier};
+		}
+	}
+}

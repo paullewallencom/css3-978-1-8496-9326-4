@@ -1,0 +1,121 @@
+body,html{
+	height: 100%;
+}
+		
+#body{
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+		
+.-webkit- #body{
+	perspective: 500px;
+	transform-style: preserve-3d;
+}
+
+.-moz- #container{
+	transform: perspective(500px);
+	transform-style: preserve-3d;	
+}
+
+.-ms- #container{
+	perspective: 500px;
+}
+		
+#container{
+	background-image: url('../imgs/grass.png');
+	text-align: center;
+	padding-bottom: 300px;
+	min-height: 1000px;
+}
+
+img.basic_parallax{
+	background: rgb(255,255,255);
+	padding: 10px;
+	box-shadow: 10px 10px 10px rgba(0,0,0,0.6);
+	position: relative;
+	margin: 10px;
+}
+
+
+/* sizes */
+.size-a{
+	width: 30%;
+}
+		
+.size-b{
+	width: 35%;
+}
+		
+.size-c{
+	width: 50%;
+}
+		
+/* z-indexes */
+.depth-a{
+	transform: translateZ(10px);
+	z-index: 1;
+}
+		
+.depth-b{
+	 transform: translateZ(50px);
+	 z-index: 2;
+}
+		
+.depth-c{
+	transform: translateZ(100px);
+	z-index: 3;
+}
+
+.depth-d{
+	transform: translateZ(150px);
+	z-index: 4;
+}
+		
+.depth-e{
+	transform: translateZ(200px);
+	z-index: 5;
+}
+
+.rotatextop{
+	transform-origin: top center;
+	transform: rotateX(15deg);
+}
+		
+.rotatexbottom{
+	transform-origin: bottom center;
+	transform: rotateX(-15deg);		
+}
+
+p{
+	text-align: center;
+	font-family: 'Bowlby One SC', cursive;
+	font-size: 6em;
+	color: #e4ddc2;
+}
+		
+p small{
+	display: block;
+	font-size: 0.4em;
+	margin-top: -1em;
+}
+
+.panorama.left{
+	transform-origin: center right;
+	transform: rotateY(43deg);	
+}
+		
+.panorama.right{
+	transform-origin: center left;
+	transform: rotateY(-43deg);	
+}
+		
+.panorama.left, .panorama.right{
+	width: 27%;
+}
+		
+.panorama.center{
+	width: 43.2%;
+}
+
+

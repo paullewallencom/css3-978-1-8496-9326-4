@@ -1,0 +1,270 @@
+	/* === SYILING THE PAGE === */
+	
+	article{
+		border-bottom: 5px dashed #CCC;
+	}
+		
+	/* === [BEGIN] ARCADE BUTTON === */
+	/* inspired from: http://www.arcade-lounge.co.uk/2011/10/22/our-new-drinkup-arcade-button-coasters/ */
+	
+	#arcade_game{
+		padding: 30px 0px;
+		background-image: repeating-linear-gradient(315deg, rgba(245,245,245,0.9), rgba(245,245,245,0.9) 200px, rgba(230,230,230,0.9) 200px, rgba(230,230,230,0.9) 400px);
+		background-clip: padding-box;
+	}
+		
+	#arcade_game a{
+		display:block;
+		position: relative;
+		text-transform: uppercase;
+		line-height: 100px;
+		text-decoration: none;
+		font-family: 'Frijole', cursive;
+		font-size: 40px;
+		width: 300px;
+		padding: 10px 0px 10px 120px;
+		margin: 0px auto;
+	}
+	
+	#arcade_game a:before, 
+	#arcade_game a:after{
+		content: "";
+		display: block;
+		position: absolute;
+		left: 0px;	
+		top: 50%;
+	}
+	
+	#arcade_game a:before{
+		width:  70px;
+		height: 70px;
+		font-family: 'Chango', cursive;
+		font-size: 50px;
+		line-height: 70px;
+		text-align: center;
+		color: rgba(255,255,255, 0.4);
+		text-shadow: -1px -1px 2px rgba(10,10,10, 0.3);
+		content: attr(data-simbolo-pulsante);
+		z-index: 2;
+		left: 15px;
+		margin-top: -35px;
+		border-radius: 35px;
+		background-image: 
+			-moz-radial-gradient(7px 7px, ellipse farthest-side, rgba(255,255,255,0.8), rgba(255,255,255,0.6) 3px, rgba(200,200,200,0.0) 20px);
+		background-image: 
+			radial-gradient(7px 7px, ellipse farthest-side, rgba(255,255,255,0.8), rgba(255,255,255,0.6) 3px, rgba(200,200,200,0.0) 20px);			
+		box-shadow: 0px 0px 10px rgba(0,0,80,0.7), 
+					0px 0px 4px rgba(0,0,0,0.4), 
+					3px 3px 6px rgba(0,0,0, 0.5), 
+					2px 2px 1px  rgba(255,255,255,0.3) inset,
+					10px 10px 20px rgba(0,0,0,0.1) inset;
+	}
+	
+	#arcade_game a:after{		
+		width: 100px;
+		height: 100px;
+		z-index: 1;
+		border-radius: 50px;
+		margin-top: -50px;
+		background-image: 
+			-moz-radial-gradient(7px 7px, ellipse farthest-side, rgba(255,255,255,0.8), rgba(255,255,255,0.6) 3px, rgba(200,200,200,0.0) 20px),
+			-moz-radial-gradient(50px 50px, rgba(255,255,255,0), rgba(255,255,255,0) 40px, rgba(200,200,200,0.1) 43px, rgba(255,255,255,0.0) 50px);
+		background-image: 
+			radial-gradient(7px 7px, ellipse farthest-side, rgba(255,255,255,0.8), rgba(255,255,255,0.6) 3px, rgba(200,200,200,0.0) 20px),
+			radial-gradient(50px 50px, rgba(255,255,255,0), rgba(255,255,255,0) 40px, rgba(200,200,200,0.1) 43px, rgba(255,255,255,0.0) 50px);			
+		box-shadow: 
+			1px 0px 1px rgba(0,0,0, 0.7),
+			6px 0px 4px rgba(0,0,0, 0.6),
+			0px 1px 0px rgba(200,200,200,0.7) inset,
+			2px 2px 1px  rgba(255,255,255,0.3) inset;
+	}
+	
+	#arcade_game a:active:before{
+		background-image: none;
+		box-shadow:	 0px 0px 7px rgba(0,0,80,0.7), 
+					0px 0px 4px rgba(0,0,0,0.4), 
+					10px 10px 20px rgba(0,0,0,0.3) inset;
+		line-height: 65px;
+	}
+	
+	#arcade_game a:active:after{
+		background-image: 
+		-moz-radial-gradient(7px 7px, ellipse farthest-side, rgba(255,255,255,0.8), rgba(255,255,255,0.6) 3px, rgba(200,200,200,0.0) 20px),
+		-moz-radial-gradient(53px 53px, rgba(255,255,255,0), rgba(255,255,255,0) 33px, rgba(255,255,255,0.3) 36px, rgba(255,255,255,0.3) 36px, rgba(255,255,255,0) 36px);
+		background-image: 
+		radial-gradient(7px 7px, ellipse farthest-side, rgba(255,255,255,0.8), rgba(255,255,255,0.6) 3px, rgba(200,200,200,0.0) 20px),
+		radial-gradient(53px 53px, rgba(255,255,255,0), rgba(255,255,255,0) 33px, rgba(255,255,255,0.3) 36px, rgba(255,255,255,0.3) 36px, rgba(255,255,255,0) 36px);
+	}
+	
+	/* puch */
+	#arcade_game .punch:after, #arcade_game .punch:before{
+		background-color: rgb(123,26,55);
+	}
+	
+	#arcade_game .punch{
+		color: rgb(123,26,55);
+	}
+	
+	/* jump */
+	#arcade_game .jump:after, #arcade_game .jump:before{
+		background-color: rgb(107,140,86);
+	}
+	
+	#arcade_game .jump{
+		color:  rgb(107,140,86);
+	}
+	
+	/* === [END] ARCADE BUTTON === */
+	
+	/* === [BEGIN] OLD PANEL === */
+	/* inspired from: http://www.flickr.com/photos/gipiosio/3539602249/ */
+	
+	#old_panel{
+		background: rgb(150,130,90);
+		background-clip: padding-box;
+		padding: 9px 0px 20px 0px;
+	}
+	
+	#old_panel input{
+		visibility: hidden;
+		position: absolute;
+		top: -999;
+		clip: 'rect(0,0,0,0)';
+	}
+	
+	#old_panel label{
+		display:block;
+		position: relative;
+		width: 300px;
+		padding-left: 125px;
+		cursor: pointer;
+		line-height: 140px;
+		height: 130px;
+		font-family: 'Alegreya SC', serif;
+		font-size: 40px;
+		margin: 0px auto;
+		text-shadow: 1px 1px 1px rgba(255,255,255, 0.3), -1px -1px 1px rgba(10,10,10, 0.3);
+	}
+		
+	#old_panel label:after{
+		content: 'OFF';
+		display: block;
+		position: absolute;
+		font-size: 20px;
+		text-align: center;
+		line-height: 60px;
+		z-index: 2;
+		bottom: 30px;
+		left: 30px;
+		width: 60px;
+		height: 65px;
+		border-radius: 7px;
+		background-image: -moz-radial-gradient(30px -15px, circle, rgba(255,255,255,0.1), rgba(255,255,255,0.1) 60px, rgba(255,255,255,0.0) 63px);
+		background-image: radial-gradient(30px -15px, circle, rgba(255,255,255,0.1), rgba(255,255,255,0.1) 60px, rgba(255,255,255,0.0) 63px);
+		box-shadow: 
+			0px 1px 0px rgba(255,255,255,0.3) inset,
+			0px -11px 0px rgba(0,0,0,0.4) inset,
+			-3px 9px 0px 0px black,
+			3px 9px 0px 0px black,
+			0px 10px 0px 0px rgba(255,255,255,0.3),
+			-4px 9px 0px 0px rgba(255,255,255,0.3),
+			4px 9px 0px 0px rgba(255,255,255,0.3),
+			0px 0px 0px 30px rgb(150,130,90);
+			
+		border: 3px solid rgba(0,0,0,0.2);
+		border-bottom: 3px solid rgba(0,0,0,0.4);
+		background-clip: padding-box;
+	}
+	
+	#old_panel label:before{
+		content: '';
+		z-index: 1;
+		display: block;
+		position: absolute;
+		bottom: 0px;
+		left: 0px;
+		width: 126px;
+		height: 131px;
+		background-image: -moz-radial-gradient(50% 50%, circle, rgba(0,0,0,0.0), rgba(0,0,0,0.0) 50px, rgb(150,130,90) 50px);
+		background-image: radial-gradient(50% 50%, circle, rgba(0,0,0,0.0), rgba(0,0,0,0.0) 50px, rgb(150,130,90) 50px);
+	}
+	
+	#old_panel label:active:after{
+		height: 54px;
+		box-shadow: 
+			0px 0px 0px 3px black,
+			-3px 9px 0px 0px black,
+			3px 9px 0px 0px black,
+			0px 0px 0px 4px rgba(255,255,255,0.3),
+			0px 10px 0px 0px rgba(255,255,255,0.3),
+			-4px 9px 0px 0px rgba(255,255,255,0.1),
+			4px 9px 0px 0px rgba(255,255,255,0.1),
+			0px 0px 0px 30px rgb(150,130,90);
+	}
+	
+	#old_panel input:checked + label:not(:active):after{
+		content: 'ON';
+		background-clip: border-box;
+		box-shadow: 
+			0px 1px 0px rgba(255,255,255,0.3) inset,
+			0px -11px 0px rgba(0,0,0,0.4) inset,
+			-3px 9px 0px 0px black,
+			3px 9px 0px 0px black,
+			0px 10px 0px 0px rgba(255,255,255,0.3),
+			-4px 9px 0px 0px rgba(255,255,255,0.3),
+			4px 9px 0px 0px rgba(255,255,255,0.3);
+	}
+	
+	
+	#old_panel input:checked + label:not(:active):before{
+		background-image: -moz-radial-gradient(50% 57%, circle, rgba(150,130,90,0.0), rgba(150,130,90,0.3) 40px, rgb(150,130,90) 55px);
+		background-image: radial-gradient(50% 57%, circle, rgba(150,130,90,0.0), rgba(150,130,90,0.3) 40px, rgb(150,130,90) 55px);
+	}
+	
+	/* -- record -- */
+	#old_panel input:checked + label.rec:not(:active):before, #old_panel input:checked + label.rec:not(:active):after{
+		background-color: rgb(248,36,21);
+	}
+	
+	#old_panel label.rec:before{
+		background-color: rgb(145,67,62);
+	}
+	
+	/* -- at field -- */
+	#old_panel input:checked + label.at_field:not(:active):before, #old_panel input:checked + label.at_field:not(:active):after{
+		background-color: rgb(61,218,216);
+	}
+	
+	#old_panel label.at_field:before{
+		background-color: rgb(29,51,200);
+	}
+
+	
+	/* === [END] OLD PANEL === */
+
+
+	/* === [BEGIN] VOIDING BASE CSS2 === */
+
+	#arcade_game a{
+		background-color: transparent !important;
+		width: 300px !important;
+		text-align: left !important;
+	}
+
+	#old_panel{
+		text-align: left !important;
+	}
+
+	/* === [END] VOIDING BASE CSS2 === */	
+
+	/* === [BEGIN] SUPPORTING IE10 === */
+	
+	#old_panel label:before{
+	  background-image: 
+	  -ms-radial-gradient(50% 50%, circle, 
+	  rgba(0,0,0,0.0), 
+	  rgba(0,0,0,0.0) 50px, 
+	  rgb(150,130,90) 50px);
+	}
+
+	/* === [END] SUPPORTING IE10 === */

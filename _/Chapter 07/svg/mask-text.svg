@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="280" version="1.1">
+  <defs>
+    <mask id="sintel-mask">
+      <text x="0" y="300" id="sintel" fill="white" style="color: black;font-size:210px;
+  font-family: Blue Highway, Arial Black, sans-serif;">SINTEL</text>
+    </mask>
+  </defs>
+  <text x="0" y="80%" id="sintel" fill="white" style="color: black;font-size:240px;
+  font-family: Blue Highway, Arial Black, sans-serif;">SINTEL</text>
+</svg>

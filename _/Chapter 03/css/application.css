@@ -1,0 +1,239 @@
+/* === [BEGIN] Style === */	
+html{
+	height: 100%;
+}
+	
+body{
+	background-image: repeating-linear-gradient(315deg, #ddd, #ddd 40px, #aaa 40px, #aaa 80px);
+	padding: 20px;
+	height: 100%;
+}
+	
+nav{
+	margin: 0 auto;
+	width: 960px;
+	font-family: sans-serif;
+	font-size: 0.6em;
+	background-color: rgb(86,86,86);
+	background-image: linear-gradient(bottom,  rgb(75,75,75), rgb(86,86,86));
+	border-radius: 4px;
+	box-shadow: 0 0 10px  rgba(0,0,0,0.1), 0 -1.5em 0px rgba(0,0,0,0.1) inset, 0 1px 1px 1px rgba(0,0,0,0.1) inset;
+}
+	
+nav > ul{
+	padding: 0 10px;
+}
+	
+/* === [END] Style === */	
+
+/* === [BEGIN] Menu === */
+
+nav > ul > li{
+	display: inline-block;
+	vertical-align: top;
+	line-height: 3em;
+	width: 100px;
+	z-index: 2;
+	position: relative;
+	border-left: 1px solid #313131;
+	box-shadow: 1px 0 1px rgba(255,255,255,0.1) inset, -1px 0 1px rgba(255,255,255,0.1) inset;
+}
+	
+nav > ul > li:nth-last-child(2){
+	border-right: 1px solid #313131;
+}
+	
+nav > ul > li > ul{
+	position: absolute;
+	left: -1px;
+	top: 3em;
+	clip: rect(0,0,0,0);
+	opacity: 0;
+}
+
+nav .item{
+	color: #fff;
+	text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+	text-decoration: none;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	padding-left: 10px;
+	white-space: nowrap;
+	display: block;
+	cursor: pointer;
+}
+
+nav > ul > li > .item:hover + ul, nav > ul > li > ul:hover{
+	clip: auto;
+}
+
+nav > ul > li > ul{
+	padding: 0.7em 0px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top: none;
+	background-color: rgb(117,189,70);
+	background-color: rgba(119,172,48, 0.8);
+	background-image: linear-gradient(left, rgba(117,189,70,1), rgba(117,189,70, 0.0));
+}
+
+nav > ul > li > ul > li > .item{
+	text-align: left;
+	min-width: 100px;
+	padding: 0px 10px;
+	line-height: 2.5em;
+}
+	
+nav > ul > li > ul > li{
+	display: block;
+	position: relative;
+	z-index: 4;
+}
+	
+/* === [BEGIN] Moving Part === */
+	
+nav > ul{
+	position: relative;
+}
+	
+nav li.cursor{		
+	position: absolute;
+	background-color: #75BD46;
+	text-indent: 900px;
+	border: none;
+	height: 3em;
+	z-index: 1;
+	left: 11px;
+	clip: rect(0,0,0,0);
+	box-shadow: 0px 0px 10px  rgba(0,0,0,0.1), 0px -1.5em 0px rgba(0,0,0,0.1) inset, 0px 1px 1px 1px rgba(0,0,0,0.1) inset;
+}
+
+nav li.cursor a{
+	display: none;
+}
+	
+nav > ul > li > ul > li.cursor{
+	height: 2.5em;
+	left: 0px;
+	width: 100%;
+	bottom: 0.7em;
+	box-shadow: none;
+	background-image: none;
+	background-color: rgb(165,204,60);
+	background-color: rgba(165,204,60,0.7);
+	z-index: 3;
+}
+	
+nav > ul li:hover ~ li.cursor{
+	clip: auto;
+}
+	
+nav > ul > li:hover + li + li + li.cursor{
+	left: 11px;
+}
+
+nav > ul > li:hover + li + li.cursor{
+	left: 112px;
+}
+
+nav > ul > li:hover + li.cursor{
+	left: 213px;
+}
+
+nav > ul > li > ul > li:hover + li + li + li.cursor{
+	bottom: 5.7em;
+}
+
+nav > ul > li > ul > li:hover + li + li.cursor{
+	bottom: 3.2em;
+}
+
+nav > ul > li > ul > li:hover + li.cursor{
+	bottom: 0.7em;
+}
+
+nav li.cursor{		
+	transition: all 1s;
+	-ms-transition: all 1s;
+}
+
+nav li.cursor .item{
+	display: none;
+}
+	
+/* === [END] Moving Part === */
+
+/* === [BEGIN] Animations === */
+
+nav > ul > li > .item:hover + ul, 
+nav > ul > li > ul:hover{
+	animation: fadein 0.1s linear 0.9s;
+	-ms-animation: fadein 0.1s linear 0.9s;
+	animation-fill-mode: forwards;
+	-ms-animation-fill-mode: forwards;			
+}
+
+.lteie9 nav > ul > li > .item:hover + ul, 
+.lteie9 nav > ul > li > ul:hover{
+	opacity: 1;
+}
+
+@keyframes fadein{
+	1%	{
+		opacity: 0.0;
+	}
+	
+	100% {
+		opacity: 1.0;
+	}
+}
+
+@-ms-keyframes fadein{
+	1%	{
+		opacity: 0.0;
+	}
+	
+	100% {
+		opacity: 1.0;
+	}
+}
+	
+/* === [END] Animations === */
+
+/* === [BEGIN] Colors === */
+
+/* portfolio */ 	
+li[data-section=portfolio]:hover ~ li.cursor {
+	background-color: #468DBD;
+}
+	
+nav > ul > li[data-section=portfolio] > ul{
+	background-color: rgb(70, 141, 189);
+	background-color: rgba(60, 194, 204, 0.8);
+	background-image: linear-gradient(left, rgba(70, 141, 189,1), rgba(70, 141, 189, 0.0));
+}
+	
+nav > ul > li[data-section=portfolio] > ul > li.cursor{
+	background-color: rgb(60, 194, 204);
+	background-color: rgba(60, 194, 204, 0.7);
+}
+	
+/* interests */
+li[data-section=interests]:hover ~ li.cursor {
+	background-color: #9E5CD0;
+}
+	
+nav > ul > li[data-section=interests] > ul{
+	background-color: rgb(158, 92, 208);
+	background-color: rgba(186, 99, 195, 0.8);
+	background-image: linear-gradient(left, rgba(158, 92, 208, 1), rgba(158, 92, 208, 0.0));
+}
+	
+nav > ul > li[data-section=interests] > ul > li.cursor{
+	background-color: rgb(186, 99, 195);
+	background-color: rgba(186, 99, 195, 0.7);
+}	
+	
+/* === [END] Colors === */
+

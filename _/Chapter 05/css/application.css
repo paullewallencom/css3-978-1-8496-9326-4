@@ -1,0 +1,538 @@
+/* == [BEGIN] Function == */
+/* == [END] Function == */
+/* == [BEGIN] Variables == */
+/* == [END] Variables == */
+/* == [BEGIN] General == */
+body, html {
+  height: 100%;
+  background-image: radial-gradient(center center, white, gray); }
+
+body > div {
+  position: absolute;
+  width: 500px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -200px;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.5; }
+
+section {
+  margin-top: 20px;
+  width: 500px;
+  height: 390px;
+  position: relative; }
+
+section > ul {
+  width: 500px;
+  height: 390px;
+  position: relative; }
+
+input {
+  width: 20px; }
+
+/* == [END] General == */
+/* == [BEGIN] Pics == */
+section figure {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 500px;
+  height: 370px;
+  padding: 0px;
+  margin: 0px;
+  background-position: center center; }
+
+#shot1 {
+  background-image: url("../img/picture1.jpg"); }
+
+#shot2 {
+  background-image: url("../img/picture2.jpg"); }
+
+#shot3 {
+  background-image: url("../img/picture3.jpg"); }
+
+#shot4 {
+  background-image: url("../img/picture4.jpg"); }
+
+#shot5 {
+  background-image: url("../img/picture5.jpg"); }
+
+/* == [END] Pics == */
+/* == [BEGIN] Span == */
+section > span > a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  font-size: 1px;
+  padding: 3px;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-weight: bold; }
+
+section > span {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  text-align: center; }
+
+a[name=picture1]:target ~ section a[href="#picture1"] {
+  background: #111; }
+
+a[name=picture2]:target ~ section a[href="#picture2"] {
+  background: #111; }
+
+a[name=picture3]:target ~ section a[href="#picture3"] {
+  background: #111; }
+
+a[name=picture4]:target ~ section a[href="#picture4"] {
+  background: #111; }
+
+a[name=picture5]:target ~ section a[href="#picture5"] {
+  background: #111; }
+
+/* == [END] Span == */
+/* == [BEGIN] Opacity == */
+#opacity:checked ~ section figure {
+  opacity: 0;
+  transition: opacity 0.4s; }
+
+#opacity:checked ~ a:not(:target) + a:not(:target) + a:not(:target) + a:not(:target) + a:not(:target) ~ section #shot1 {
+  opacity: 1; }
+
+#opacity:checked ~ a[name=picture1]:target ~ section #shot1 {
+  opacity: 1; }
+
+#opacity:checked ~ a[name=picture2]:target ~ section #shot2 {
+  opacity: 1; }
+
+#opacity:checked ~ a[name=picture3]:target ~ section #shot3 {
+  opacity: 1; }
+
+#opacity:checked ~ a[name=picture4]:target ~ section #shot4 {
+  opacity: 1; }
+
+#opacity:checked ~ a[name=picture5]:target ~ section #shot5 {
+  opacity: 1; }
+
+/* == [END] Opacity == */
+/* == [BEGIN] Slide In == */
+#slidein:checked ~ section > ul {
+  overflow: hidden; }
+
+#slidein:checked ~ section figure {
+  left: -500px;
+  animation-name: slideout;
+  animation-duration: 1.5s; }
+
+#slidein:checked ~ a:not(:target) + a:not(:target) + a:not(:target) + a:not(:target) + a:not(:target) ~ section #shot1 {
+  animation-name: slidein;
+  animation-duration: 1.5s;
+  left: 0px; }
+
+#slidein:checked ~ a[name=picture1]:target ~ section #shot1 {
+  animation-name: slidein;
+  animation-duration: 1.5s;
+  left: 0px; }
+
+#slidein:checked ~ a[name=picture2]:target ~ section #shot2 {
+  animation-name: slidein;
+  animation-duration: 1.5s;
+  left: 0px; }
+
+#slidein:checked ~ a[name=picture3]:target ~ section #shot3 {
+  animation-name: slidein;
+  animation-duration: 1.5s;
+  left: 0px; }
+
+#slidein:checked ~ a[name=picture4]:target ~ section #shot4 {
+  animation-name: slidein;
+  animation-duration: 1.5s;
+  left: 0px; }
+
+#slidein:checked ~ a[name=picture5]:target ~ section #shot5 {
+  animation-name: slidein;
+  animation-duration: 1.5s;
+  left: 0px; }
+
+@keyframes slidein {
+  0% {
+    left: 500px; }
+
+  100% {
+    left: 0px; } }
+
+@keyframes slideout {
+  0% {
+    left: 0px; }
+
+  100% {
+    left: -500px; } }
+
+/* == [END] Slide In == */
+/* == [BEGIM] Cube == */
+#cube:checked ~ section {
+  perspective: 500px; }
+
+#cube:checked ~ section > ul {
+  transform-style: preserve-3d; }
+
+#cube:checked ~ section figure {
+  transform-origin: 250px 185px -250px;
+  backface-visibility: hidden;
+  transform: rotateY(-90deg);
+  animation-name: cubeout;
+  animation-duration: 1.5s; }
+
+#cube:checked ~ a:not(:target) + a:not(:target) + a:not(:target) + a:not(:target) + a:not(:target) ~ section #shot1 {
+  animation-name: cubein;
+  animation-duration: 1.5s;
+  transform: rotateY(0deg); }
+
+#cube:checked ~ a[name=picture1]:target ~ section #shot1 {
+  animation-name: cubein;
+  animation-duration: 1.5s;
+  transform: rotateY(0deg); }
+
+#cube:checked ~ a[name=picture2]:target ~ section #shot2 {
+  animation-name: cubein;
+  animation-duration: 1.5s;
+  transform: rotateY(0deg); }
+
+#cube:checked ~ a[name=picture3]:target ~ section #shot3 {
+  animation-name: cubein;
+  animation-duration: 1.5s;
+  transform: rotateY(0deg); }
+
+#cube:checked ~ a[name=picture4]:target ~ section #shot4 {
+  animation-name: cubein;
+  animation-duration: 1.5s;
+  transform: rotateY(0deg); }
+
+#cube:checked ~ a[name=picture5]:target ~ section #shot5 {
+  animation-name: cubein;
+  animation-duration: 1.5s;
+  transform: rotateY(0deg); }
+
+@keyframes cubein {
+  0% {
+    transform: rotateY(90deg); }
+
+  100% {
+    transform: rotateY(0deg); } }
+
+@keyframes cubeout {
+  0% {
+    transform: rotateY(0deg); }
+
+  100% {
+    transform: rotateY(-90deg); } }
+
+/* == [END] Cube == */
+/* == [BEGIN] Animation == */
+#animate:checked ~ section #shot1 {
+  animation-delay: 0s; }
+
+#animate:checked ~ section #shot2 {
+  animation-delay: 2.5s; }
+
+#animate:checked ~ section #shot3 {
+  animation-delay: 5s; }
+
+#animate:checked ~ section #shot4 {
+  animation-delay: 7.5s; }
+
+#animate:checked ~ section #shot5 {
+  animation-delay: 10s; }
+
+#animate:checked ~ section span {
+  display: none; }
+
+/* opacity animation */
+#opacity:checked ~ #animate:checked ~ section #shot1 {
+  opacity: 0;
+  animation-name: opacity;
+  animation-duration: 12.5s;
+  animation-iteration-count: infinite; }
+
+#opacity:checked ~ #animate:checked ~ section #shot2 {
+  opacity: 0;
+  animation-name: opacity;
+  animation-duration: 12.5s;
+  animation-iteration-count: infinite; }
+
+#opacity:checked ~ #animate:checked ~ section #shot3 {
+  opacity: 0;
+  animation-name: opacity;
+  animation-duration: 12.5s;
+  animation-iteration-count: infinite; }
+
+#opacity:checked ~ #animate:checked ~ section #shot4 {
+  opacity: 0;
+  animation-name: opacity;
+  animation-duration: 12.5s;
+  animation-iteration-count: infinite; }
+
+#opacity:checked ~ #animate:checked ~ section #shot5 {
+  opacity: 0;
+  animation-name: opacity;
+  animation-duration: 12.5s;
+  animation-iteration-count: infinite; }
+
+@keyframes opacity {
+  0% {
+    opacity: 0; }
+
+  12% {
+    opacity: 1; }
+
+  20% {
+    opacity: 1; }
+
+  32% {
+    opacity: 0; }
+
+  100% {
+    opacity: 0; } }
+
+/* slide animation */
+#slidein:checked ~ #animate:checked ~ section #shot1 {
+  left: -500px;
+  animation-name: slide;
+  animation-duration: 12.5s;
+  animation-iteration-count: infinite; }
+
+#slidein:checked ~ #animate:checked ~ section #shot2 {
+  left: -500px;
+  animation-name: slide;
+  animation-duration: 12.5s;
+  animation-iteration-count: infinite; }
+
+#slidein:checked ~ #animate:checked ~ section #shot3 {
+  left: -500px;
+  animation-name: slide;
+  animation-duration: 12.5s;
+  animation-iteration-count: infinite; }
+
+#slidein:checked ~ #animate:checked ~ section #shot4 {
+  left: -500px;
+  animation-name: slide;
+  animation-duration: 12.5s;
+  animation-iteration-count: infinite; }
+
+#slidein:checked ~ #animate:checked ~ section #shot5 {
+  left: -500px;
+  animation-name: slide;
+  animation-duration: 12.5s;
+  animation-iteration-count: infinite; }
+
+@keyframes slide {
+  0% {
+    left: 500px; }
+
+  12% {
+    left: 0px; }
+
+  20% {
+    left: 0px; }
+
+  32% {
+    left: -500px; }
+
+  100% {
+    left: -500px; } }
+
+/* cube animation */
+#cube:checked ~ #animate:checked ~ section #shot1 {
+  transform: rotateY(-90deg);
+  transition: none;
+  animation-name: cube;
+  animation-duration: 12.5s;
+  animation-iteration-count: infinite; }
+
+#cube:checked ~ #animate:checked ~ section #shot2 {
+  transform: rotateY(-90deg);
+  transition: none;
+  animation-name: cube;
+  animation-duration: 12.5s;
+  animation-iteration-count: infinite; }
+
+#cube:checked ~ #animate:checked ~ section #shot3 {
+  transform: rotateY(-90deg);
+  transition: none;
+  animation-name: cube;
+  animation-duration: 12.5s;
+  animation-iteration-count: infinite; }
+
+#cube:checked ~ #animate:checked ~ section #shot4 {
+  transform: rotateY(-90deg);
+  transition: none;
+  animation-name: cube;
+  animation-duration: 12.5s;
+  animation-iteration-count: infinite; }
+
+#cube:checked ~ #animate:checked ~ section #shot5 {
+  transform: rotateY(-90deg);
+  transition: none;
+  animation-name: cube;
+  animation-duration: 12.5s;
+  animation-iteration-count: infinite; }
+
+@keyframes cube {
+  0% {
+    transform: rotateY(90deg); }
+
+  12% {
+    transform: rotateY(0deg); }
+
+  20% {
+    transform: rotateY(0deg); }
+
+  32% {
+    transform: rotateY(-90deg); }
+
+  100% {
+    transform: rotateY(-90deg); } }
+
+/* == [END] Animation == */
+/* == [BEGIN] Arrows == */
+#arrows:checked ~ section span {
+  position: static; }
+
+/* step 1 and 2: transform each bullet in an arrow sign and move all the arrows to the left of the picture */
+#arrows:checked ~ section a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-image: url("../img/freccie.png");
+  background-repeat: no-repeat;
+  background-color: #000;
+  background-position: -50px 0px;
+  position: absolute;
+  padding: 0;
+  top: 50%;
+  margin-top: -25px;
+  margin-left: -70px;
+  left: 0; }
+
+#arrows:checked ~ section a:hover {
+  background-color: #333; }
+
+/* step 3: hide the arrow corresponding to the selected image */
+#arrows:checked ~ a[name=picture1]:target ~ section a[href="#picture1"] {
+  display: none; }
+
+/* step 4: Move all the arrows that follow the one corresponding to the selected image to the right, one above another */
+#arrows:checked ~ a[name=picture1]:target ~ section a[href="#picture1"] ~ a {
+  display: block;
+  position: absolute;
+  margin-right: -70px;
+  right: 0;
+  left: auto; }
+
+/* step 5: Pick the arrow that follows the one corresponding to the selected image and change its z-index in order to put it on top of the right stack */
+#arrows:checked ~ a[name=picture1]:target ~ section a[href="#picture1"] + a {
+  background-position: 0px 0px;
+  z-index: 20; }
+
+/* step 3: hide the arrow corresponding to the selected image */
+#arrows:checked ~ a[name=picture2]:target ~ section a[href="#picture2"] {
+  display: none; }
+
+/* step 4: Move all the arrows that follow the one corresponding to the selected image to the right, one above another */
+#arrows:checked ~ a[name=picture2]:target ~ section a[href="#picture2"] ~ a {
+  display: block;
+  position: absolute;
+  margin-right: -70px;
+  right: 0;
+  left: auto; }
+
+/* step 5: Pick the arrow that follows the one corresponding to the selected image and change its z-index in order to put it on top of the right stack */
+#arrows:checked ~ a[name=picture2]:target ~ section a[href="#picture2"] + a {
+  background-position: 0px 0px;
+  z-index: 20; }
+
+/* step 3: hide the arrow corresponding to the selected image */
+#arrows:checked ~ a[name=picture3]:target ~ section a[href="#picture3"] {
+  display: none; }
+
+/* step 4: Move all the arrows that follow the one corresponding to the selected image to the right, one above another */
+#arrows:checked ~ a[name=picture3]:target ~ section a[href="#picture3"] ~ a {
+  display: block;
+  position: absolute;
+  margin-right: -70px;
+  right: 0;
+  left: auto; }
+
+/* step 5: Pick the arrow that follows the one corresponding to the selected image and change its z-index in order to put it on top of the right stack */
+#arrows:checked ~ a[name=picture3]:target ~ section a[href="#picture3"] + a {
+  background-position: 0px 0px;
+  z-index: 20; }
+
+/* step 3: hide the arrow corresponding to the selected image */
+#arrows:checked ~ a[name=picture4]:target ~ section a[href="#picture4"] {
+  display: none; }
+
+/* step 4: Move all the arrows that follow the one corresponding to the selected image to the right, one above another */
+#arrows:checked ~ a[name=picture4]:target ~ section a[href="#picture4"] ~ a {
+  display: block;
+  position: absolute;
+  margin-right: -70px;
+  right: 0;
+  left: auto; }
+
+/* step 5: Pick the arrow that follows the one corresponding to the selected image and change its z-index in order to put it on top of the right stack */
+#arrows:checked ~ a[name=picture4]:target ~ section a[href="#picture4"] + a {
+  background-position: 0px 0px;
+  z-index: 20; }
+
+/* step 3: hide the arrow corresponding to the selected image */
+#arrows:checked ~ a[name=picture5]:target ~ section a[href="#picture5"] {
+  display: none; }
+
+/* step 4: Move all the arrows that follow the one corresponding to the selected image to the right, one above another */
+#arrows:checked ~ a[name=picture5]:target ~ section a[href="#picture5"] ~ a {
+  display: block;
+  position: absolute;
+  margin-right: -70px;
+  right: 0;
+  left: auto; }
+
+/* step 5: Pick the arrow that follows the one corresponding to the selected image and change its z-index in order to put it on top of the right stack */
+#arrows:checked ~ a[name=picture5]:target ~ section a[href="#picture5"] + a {
+  background-position: 0px 0px;
+  z-index: 20; }
+
+/* == [END] Arrows == */
+/* == [BEGIN] Old Browser == */
+.lteie9 body > div > span,
+.lteie9 body > div > input,
+.lteie9 body > div > br,
+.lteie9 body > div > label,
+.lteie9 figure {
+  display: none; }
+
+.lteie9 a:not(:target) + a:not(:target) + a:not(:target) + a:not(:target) + a:not(:target) ~ section #shot1 {
+  display: block; }
+
+.lteie9 a[name=picture1]:target ~ section #shot1 {
+  display: block; }
+
+.lteie9 a[name=picture2]:target ~ section #shot2 {
+  display: block; }
+
+.lteie9 a[name=picture3]:target ~ section #shot3 {
+  display: block; }
+
+.lteie9 a[name=picture4]:target ~ section #shot4 {
+  display: block; }
+
+.lteie9 a[name=picture5]:target ~ section #shot5 {
+  display: block; }
+
+/* == [END] Old Browser == */

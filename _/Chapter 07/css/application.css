@@ -1,0 +1,98 @@
+		html{
+			min-height: 100%;
+			background-image: linear-gradient(top, black, black 500px, white);
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+		video{
+			display: block;
+			margin: 0 auto;
+		}
+
+		ul{
+			text-align: center;
+			position: absolute;
+			bottom : 100px;
+			width: 100%;
+		}
+
+		li{
+			display: inline;
+		}
+
+		li > a{
+			display: inline-block;
+			padding: 5px;
+			background: #FFF;
+			border: 3px solid black;
+			text-decoration: none;
+			font-family: sans-serif;
+			color: black;
+			font-size: 10px;
+		}
+
+
+		/* ==[BEGIN] Masking == */
+
+		a[name="mask"]:target ~ video{
+			mask: url('../svg/mask.svg#circle');
+			-webkit-mask-image: url('../svg/mask.svg');
+		}
+
+		/* == [BEGIN] Animated Masking == */
+
+		a[name="mask-animate"]:target ~ video{
+			mask: url('../svg/mask-animate.svg#circle');
+			-webkit-mask-image: url('../svg/mask-animate.svg');
+		}
+
+		/* == [BEGIN] Animated Masking only webkit == */
+
+		a[name="mask-animate-webkit"]:target ~ video{
+			-webkit-mask-position: 0 100%;
+			-webkit-mask-size: 100% 200%;
+			-webkit-mask-image: -webkit-gradient(linear, center top, center bottom, 
+					color-stop(0.00,  rgba(0,0,0,1)),
+					color-stop(1.00,  rgba(0,0,0,0))
+				);
+				-webkit-transition: -webkit-mask-position 1s;
+		}
+
+		a[name="mask-animate-webkit"]:target ~ video:hover{
+			-webkit-mask-position: 0 0;
+		}
+
+		/* == [BEGIN] Text Masking == */
+		
+		a[name="mask-text"]:target ~ video{
+			mask: url('../svg/mask-text.svg#sintel-mask');
+			-webkit-mask-box-image: url('../svg/mask-text.svg');
+		}
+
+		/* == [BEGIN] Blur filter == */
+		
+		a[name="blur-filter"]:target ~ video{
+			-webkit-filter: blur(3px);
+			-webkit-transition: -webkit-filter 1s;			
+			filter: url('../svg/filters.svg#blur');
+		}
+
+		.-ms- a[name="blur-filter"]:target ~ video{
+			filter:progid:DXImageTransform.Microsoft.Blur(pixelradius=3);
+		}
+
+		a[name="blur-filter"]:target ~ video:hover{
+			-webkit-filter: blur(0px);
+		}
+
+		/* == [BEGIN] Grayscale filter == */
+
+		a[name="grayscale-filter"]:target ~ video{
+			-webkit-filter: grayscale(1);
+			filter: url('../svg/filters.svg#grayscale');
+		}
+
+		.-ms- a[name="grayscale-filter"]:target ~ video{
+			filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+		}

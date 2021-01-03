@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Bowlby+One+SC' rel='stylesheet' type='text/css' data-noprefix>
+		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.5.1/build/cssreset/cssreset-min.css" data-noprefix>
+		<link rel="stylesheet" type="text/css" href="css/application.css">
+		
+		<script src="js/prefixfree.js"></script>
+		<script src="js/modernizr.js"></script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+		<script>
+		
+		// == for Firefox and MSIE users ==
+		$(document).ready(function(){
+			if($.browser.mozilla || ( $.browser.msie && Modernizr.csstransforms3d )){
+				$('#body').scroll(function(event){
+					var viewport_height = $(window).height(),
+						body_scrolltop = $('#body').scrollTop(),
+						perspective_y = body_scrolltop + Math.round( viewport_height / 2 );
+						
+					if($.browser.mozilla){							
+						$('#container').css({
+							'transform-origin': 'center ' + perspective_y + "px",
+							'-moz-transform-origin': 'center ' + perspective_y + "px",
+						});
+					}else{
+						$('#container').css({
+							'perspective-origin': 'center ' + perspective_y + "px",
+							'-ms-perspective-origin': 'center ' + perspective_y + "px",
+						});
+					}
+				})
+			}
+		});
+						
+		</script>
+
+
+	</head>
+	<body>
+		
+		<div id="body">
+			<div id="container">
+				
+				
+					<!-- BASIC PARALLAX -->
+					<img class="basic_parallax depth-a size-a" src="imgs/pic1.jpg">
+					<img class="basic_parallax depth-b size-c" src="imgs/pic2.jpg">
+					<img class="basic_parallax depth-c size-b" src="imgs/pic3.jpg">
+					<img class="basic_parallax depth-b size-a" src="imgs/pic4.jpg">
+					<img class="basic_parallax depth-d size-c" src="imgs/pic5.jpg">
+					<img class="basic_parallax depth-e size-b" src="imgs/pic6.jpg">
+					<img class="basic_parallax depth-a size-c" src="imgs/pic7.jpg">
+					<img class="basic_parallax depth-c size-a" src="imgs/pic8.jpg">
+					<img class="basic_parallax depth-d size-c" src="imgs/pic9.jpg">
+					<img class="basic_parallax depth-a size-b" src="imgs/pic10.jpg">
+					<img class="basic_parallax depth-e size-b" src="imgs/pic11.jpg">
+					<img class="basic_parallax depth-a size-a" src="imgs/pic12.jpg">
+					<img class="basic_parallax depth-b size-c" src="imgs/pic13.jpg">
+					<img class="basic_parallax depth-c size-a" src="imgs/pic14.jpg">
+					
+					
+					<!-- DECKS -->
+					<img class="rotatextop" src="imgs/pic15.jpg">
+					<p>
+						Keremma Dunes
+						<small>Bretagne, Finist&eacute;re</small>
+					</p>
+					<img class="rotatexbottom" src="imgs/pic17.jpg">
+					<p class="depth-e">
+						Rennes
+						<small>Bretagne</small>
+					</p>
+					<img src="imgs/pic18.jpg">									
+					
+					<!-- PANORAMA -->
+					<p>
+						Ortigia
+						<small>Italy</small>
+					</p>
+					<img class="panorama left" src="imgs/panorama_left.jpg"><img class="panorama center" src="imgs/panorama.jpg"><img class="panorama right" src="imgs/panorama_right.jpg">
+					
+					
+
+
+			</div>
+		</div>
+		
+	</body>
+</html>
+
+

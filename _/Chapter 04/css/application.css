@@ -1,0 +1,281 @@
+			html, body{
+				height: 100%;
+			}
+			body{
+				overflow: hidden;
+				font-family: sans-serif;
+				/*-webkit-transform: translateZ(0); enable to avoid screen flashing*/
+			}
+			/* == [BEGIN] FlexBox == */
+			section{
+				display: box;
+				box-orient: horizontal;
+				height: 100%;
+				width: 100%;
+				overflow: hidden;
+			}
+			header{
+				width: 200px;
+				background: rgb(181, 65, 71);
+			}
+			article{
+				background-color: rgb(204, 204, 204);
+				background-image: repeating-linear-gradient(bottom left, rgb(204, 204, 204) 0px, rgb(204, 204, 204) 20px, rgb(210, 210, 210) 20px, rgb(210, 210, 210) 40px);
+				box-flex: 1;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			/* == [END] FlexBox == */
+			
+			/* == [BEGIN] Menu == */
+			
+			nav, ul, li{
+				width: 100%;
+			}
+			
+			h1{
+				font-size: 16px;
+				text-transform: uppercase;
+				letter-spacing: -1px;
+				font-weight: bold;
+				line-height: 30px;
+				text-align: center;
+				padding: 10px 0 10px 0;
+				color: rgb(255,255,255);
+				background: rgb(85, 85, 85);
+				margin-bottom: 10px;
+			}
+			
+			li, li a, nav label{
+				display: block;
+				height: 30px;
+				line-height: 30px;
+			}
+			
+			li a{
+				color: white;
+				text-decoration: none;
+				font-weight: bold;
+				padding-left: 20px;
+			}
+			
+			li:not(:nth-last-child(2)) a:after{
+				content: " \00BB";
+			}
+			
+			li:nth-last-child(2) a:before{
+				content: "\00AB";
+			}
+			
+			li a:hover{
+				text-decoration: underline;
+			}
+			
+			/* == [END] Menu == */
+			
+			/* == [BEGIN] Infographic == */			
+			.no-inlinesvg div.panel{
+				display: none;
+			}
+			
+			.inlinesvg img.panel{
+				display: none;
+			}
+
+			div.panel{
+				width: 572px;
+				height: 547px;
+			}
+						
+			.-webkit- div.panel, 
+			.-ms- div.panel{
+				width: 100%;
+				height: 100%;
+				transition: transform 1s;
+			}		
+
+			img.panel{
+				display: block;
+				position: absolute;
+				top: 50%; left: 50%;
+				margin-top: -282px;
+				margin-left: -273px;
+				transition: transform 1s;
+			}
+
+ 			html:not(.-webkit-):not(.-ms-) div.panel{
+				display: block;
+				position: absolute;
+				top: 50%; left: 50%;
+				margin-top: -282px;
+				margin-left: -273px;
+				transition: transform 1s; 				
+ 			}
+			
+			/* == [END] Infographic == */
+			
+			/* == [BEGIN] Side Controls == */
+			
+			a[id='italy']:target ~ section div.panel { 
+				transform: scale(2) translateY(15%);
+				-ms-transform: scale(2) translateY(15%);
+			}
+			
+			a[id='italy2']:target ~ section div.panel{
+				transform: scale(2) translateY(-15%);
+				-ms-transform: scale(2) translateY(-15%);
+			}
+
+			a[id='montreal']:target ~ section div.panel{
+				transform: scale(1.8) translate(24%, -21%);
+				-ms-transform: scale(1.8) translate(24%, -21%);
+			}
+			
+			a[id='sanfrancisco']:target ~ section div.panel{
+				transform: scale(1.8) translate(-24%, -21%);
+				-ms-transform: scale(1.8) translate(-24%, -21%);
+			}
+			
+			a[id='montreal']:target ~ #mask div[data-detail="montreal"],
+			a[id='italy2']:target ~ #mask div[data-detail="italy2"],
+			a[id='italy']:target ~ #mask div[data-detail="italy"],
+			a[id='sanfrancisco']:target ~ #mask div[data-detail="sanfrancisco"]{
+				display: block;
+			}
+			
+			a[id='italy']:target ~ #mask,
+			a[id='italy2']:target ~ #mask,
+			a[id='montreal']:target ~ #mask,
+			a[id='sanfrancisco']:target ~ #mask{
+				transition: bottom 1s;
+				bottom: 0px;
+			}
+			
+
+			/* == [END] Side Controls == */
+			
+			/* == [BEGIN] Mask Controls == */
+			
+			#mask{
+				position: absolute;
+				font-size: 16px;
+				padding-top: 5px;
+				font-weight: bold;
+				height: 50px;
+				color: rgb(255,255,255);
+				background-color: rgb(0,0,0);
+				background-color: rgba(0,0,0,0.8);
+				text-align: center;
+				font-size: 18px;
+				bottom: -55px;
+				left: 201px;
+				right: 0px;
+			}
+			
+			#mask menu{
+				position: absolute;
+				padding: 0; margin: 0;
+				bottom: 4px;
+				left: 0px;
+				right: 0px;
+				text-align: center;
+			}
+			
+			#mask div{
+				display: none;
+			}
+			
+			#mask a{
+				text-decoration: none;
+				color: rgb(255,255,255);
+				padding: 0 10px;
+			}
+			
+			/* == [END] Mask Controls == */
+			
+			/* == [BEGIN] Toggle labels == */
+			
+			#Layer_2{
+				opacity: 0;
+				transition: opacity 1s;
+			}
+			
+			.no-svg label{
+				display: none;
+			}
+			
+			label{
+				text-align: left;
+				padding-left: 20px;
+				font-size: 13px;
+				cursor: pointer;
+			}
+			
+			#show_labels{
+				display: none;
+			}
+						
+			nav label:before{
+				content: 'Click to show labels';
+			}
+			
+			#show_labels:checked ~ section label:before{
+				content: 'Click to hide labels';
+			}
+			
+			#show_labels:checked ~ section #Layer_2{
+				opacity: 1;
+			}
+			
+			/* == [END] Toggle labels == */
+			
+			/* == [BEGIN] Compatibility == */
+			
+			.no-inlinesvg #mask{
+				left: 0px;
+			}
+			
+			.no-inlinesvg label{
+				display: none;
+			}
+			
+			
+			#mask.montreal, #mask.sanfrancisco, #mask.italy, #mask.italy2{
+				bottom: 0px;
+			}
+			
+			#mask.montreal div[data-detail="montreal"], 
+			#mask.italy2 div[data-detail="italy2"], 
+			#mask.italy div[data-detail="italy"], 
+			#mask.sanfrancisco div[data-detail="sanfrancisco"]{
+				display: block;
+			}
+			
+			section.italy img.panel{
+				top: 60%; left: 25%;
+				width: 1000px;
+				height: 1000px;
+			}
+
+			section.italy2 img.panel{
+				top: 0%; left: 25%;
+				width: 1000px;
+				height: 1000px;
+			}
+			
+			section.montreal img.panel{
+				top: -10%; left: 50%;
+				width: 1000px;
+				height: 1000px;
+			}
+			
+			section.sanfrancisco img.panel{
+				top: -10%; left: 0%;
+				width: 1000px;
+				height: 1000px;
+			}
+
+			
+			/* == [END]  Compatibility == */
+			

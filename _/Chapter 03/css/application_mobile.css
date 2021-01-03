@@ -1,0 +1,129 @@
+body{
+	padding: 15px;
+}
+	
+nav {
+	width: 290px;
+	height: 100%;
+	font-size: 1em;
+	text-align: center;
+	border-radius: 0;
+	box-shadow: 0 0 5px rgba(0,0,0,0.4);
+	position: relative;
+	overflow: hidden;
+}
+		
+nav > ul{
+	width: 	290px;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+		
+nav > ul > li{
+	width: 100%;
+	display: block;
+	position: static;
+	border-bottom: 1px solid #313131;
+	box-shadow: 0 1px 1px rgba(255,255,255,0.1) inset, 0 -1px 1px rgba(255,255,255,0.1) inset, 0 -1.5em 0 rgba(0,0,0,0.1) inset;
+}
+		
+nav > ul > li > .item {
+	padding-right: 15px;
+	position: relative;
+	box-sizing: border-box;
+	z-index: 1;
+}
+		
+nav > ul > li > ul {
+	display: block;
+	padding: 0;
+	padding-top: 3em;
+	top: 0;
+	left:  290px;
+	height: 610px;
+	width: 290px;
+	clip: auto;
+	opacity: 1;
+	transition: left 1s;
+	z-index: 2;
+}
+			
+nav > ul > li[data-status="selected"] > .item + ul,
+.touch nav > ul > li > .item:hover + ul {
+	left: 0px;
+	animation: none;
+}
+		
+nav li.cursor{
+	display:none;
+	transition: none;
+}
+		
+nav > ul > li > ul > li.cursor{
+	display: block;
+	top: 0px;
+	text-indent: 0;
+	left: 0px;
+	line-height: 3em;
+	height: 3em;
+	clip: auto;
+}
+
+nav > ul > li > ul > li.cursor .item{
+	display: block;
+}
+
+nav > ul > li > ul > li:first-child{
+	border-top: 1px solid rgba(0,0,0,0.1);
+}
+		
+nav > ul > li > ul > li{
+	height: 3em;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+		
+nav > ul > li > ul > li > .item{
+	line-height: 3em;
+	text-align: center;
+}
+			
+nav > ul > li > .item:after, 
+nav > ul > li > ul > li.cursor:before{
+	content: '>';
+	display: block;
+	font-size: 1em;
+	line-height: 3em;
+	position: absolute;
+	top: 0px;
+	text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+	font-weight: bold;
+	color: #fff;
+}
+
+nav > ul > li > ul > li.cursor:before{
+	content: '<';
+	left: 15px;
+}
+
+nav > ul > li > .item:after{
+	right: 15px;
+}
+
+nav > ul > li > ul{
+	background-color: rgb(117,189,70);
+	background-image: none;
+}
+
+nav > ul > li[data-section=interests] > ul{
+	background-color: rgb(186, 99, 195);
+}
+
+nav > ul > li[data-section=portfolio] > ul{
+	background-color: rgb(70, 141, 189);
+}
+
+
+
